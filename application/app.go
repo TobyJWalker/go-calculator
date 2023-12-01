@@ -1,7 +1,9 @@
 package application
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"sync"
 )
 
@@ -23,7 +25,14 @@ func (app *App) Run(wg *sync.WaitGroup) {
 	// welcome user
 	app.Welcome()
 
-	
+	// loop indefinitely
+	for {
+
+		// get user input
+		input := app.GetUserInput()
+		fmt.Println(input)
+
+	}
 
 	// mark done
 	wg.Done()
@@ -38,3 +47,19 @@ func (app *App) Welcome() {
 	fmt.Println()
 
 }
+
+// get user input
+func (app *App) GetUserInput() string {
+
+	// initialise bufio scanner
+	scanner := bufio.NewScanner(os.Stdin)
+
+	// prompt user
+	fmt.Print(">> ")
+	scanner.Scan()
+	input := scanner.Text()
+
+	return input
+
+}
+
