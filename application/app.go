@@ -1,6 +1,9 @@
 package application
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
 
 // create app struct
 type App struct {
@@ -15,11 +18,15 @@ func New() *App {
 }
 
 // run function
-func (app *App) Run() {
+func (app *App) Run(wg *sync.WaitGroup) {
 	
 	// welcome user
 	app.Welcome()
 
+	
+
+	// mark done
+	wg.Done()
 }
 
 // welcome function

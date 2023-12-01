@@ -2,12 +2,21 @@ package main
 
 import (
 	"go-calculator/application"
+	"sync"
 )
 
 func main() {
-	// 1. Create a new instance of the application.
+	// Create a new instance of the application.
 	app := application.New()
 
-	// 2. Run the application.
-	app.Run()
+	// Create a wait group to manage the goroutine
+	// This is not necessary for this, just for practice
+	wg := sync.WaitGroup{}
+
+	// Run the application.
+	wg.Add(1)
+	go app.Run(&wg)
+
+	// Wait for the goroutine to finish
+	wg.Wait()
 }
