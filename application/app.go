@@ -49,8 +49,20 @@ func (app *App) Run(wg *sync.WaitGroup) {
 			continue
 		}
 
-		//display equation
-		fmt.Println("Equation: ", eq.num1, eq.op, eq.num2)
+		// select case based on operator
+		switch eq.op {
+		case "+" :
+			fmt.Println(eq.num1 + eq.num2)
+		
+		case "-" :
+			fmt.Println(eq.num1 - eq.num2)
+		
+		case "*" :
+			fmt.Println(eq.num1 * eq.num2)
+
+		case "/" :
+			fmt.Println(eq.num1 / eq.num2)
+		}
 
 	}
 
