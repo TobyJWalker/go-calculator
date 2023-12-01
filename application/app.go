@@ -45,10 +45,8 @@ func (app *App) Run(wg *sync.WaitGroup) {
 			break
 		}
 		
-		// parse user input
+		// parse user input and handle errors
 		eq, err := app.ParseInput(input)
-
-		// handle errors
 		if err {
 			continue
 		}
