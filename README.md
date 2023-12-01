@@ -1,5 +1,7 @@
 # go-calculator
-Basic command line calculator app written in Go. It can perform the basic operations:
+Basic command line calculator app written in Go which I am using to practice some Go concepts further, such as packages. 
+
+It can perform the basic operations:
 
 - Addition
 - Subtraction
