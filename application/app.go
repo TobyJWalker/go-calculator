@@ -37,10 +37,8 @@ func (app *App) Run(wg *sync.WaitGroup) {
 	// loop indefinitely
 	for {
 
-		// get user input
+		// get user input and check for exit
 		input, exit_sig := app.GetUserInput()
-
-		// check for exit signal
 		if exit_sig {
 			break
 		}
